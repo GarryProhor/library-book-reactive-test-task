@@ -43,9 +43,9 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Mono<BookDTO> findByTitleAndYears(String title, int years) {
-        return repository.findByTitleAndYears(title, years)
-                .switchIfEmpty(Mono.error(new BookNotFoundException("Book with title - {0} and years {1}, not found", title, years)))
+    public Mono<BookDTO> findByTitle(String title) {
+        return repository.findByTitle(title)
+                .switchIfEmpty(Mono.error(new BookNotFoundException("Book with title - {0} and years {1}, not found", title)))
                 .flatMap(o -> Mono.just(builder.build(o)));
     }
 

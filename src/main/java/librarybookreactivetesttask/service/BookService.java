@@ -10,7 +10,7 @@ public interface BookService {
     Mono<BookDTO> save(BookDTO dto);
     Flux<BookDTO> findAll();
     Mono<BookDTO> findById(Long id);
-    Mono<BookDTO> findByTitleAndYears(String title, int years);
+    Mono<BookDTO> findByTitle(String title);
     Mono<Void> updateById(Long id, BookDTO dto);
     Mono<Void> deleteById(Long id);
 }
